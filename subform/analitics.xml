@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @package   plg_ajax_flyandexturbo
+  ~ @version   3.3.0
+  ~ @author    Dmitriy Vasyukov - https://fictionlabs.ru
+  ~ @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
+  ~ @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+  ~ @link      https://fictionlabs.ru/
+  -->
+
+<form>
+    <fieldset name="section1">
+        <field name="items_analitics_type" type="fllist" default=""
+            label="PLG_FLYANDEXTURBO_ANALITIC_SYSTEM_NAME_LABEL"
+            description="PLG_FLYANDEXTURBO_ANALITIC_SYSTEM_NAME_DESC"
+            multiple="false">
+            <option value="Yandex">PLG_FLYANDEXTURBO_ANALITIC_YANDEX</option>
+            <option value="LiveInternet">PLG_FLYANDEXTURBO_ANALITIC_LIVE</option>
+            <option value="Google">PLG_FLYANDEXTURBO_ANALITIC_GOOGLE</option>
+            <option value="MailRu">PLG_FLYANDEXTURBO_ANALITIC_MAIL</option>
+            <option value="Rambler">PLG_FLYANDEXTURBO_ANALITIC_RAMBLER</option>
+            <option value="Mediascope">PLG_FLYANDEXTURBO_ANALITIC_TNS</option>
+        </field>
+
+        <field name="items_analitics_id" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_ANALITIC_SYSTEM_ID_LABEL" 
+            description="PLG_FLYANDEXTURBO_ANALITIC_SYSTEM_ID_DESC" />
+
+        <field name="items_analitics_liveinternet_params" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_ANALITIC_SYSTEM_PARAM_LABEL" 
+            description="PLG_FLYANDEXTURBO_ANALITIC_SYSTEM_PARAM_DESC" />
+    </fieldset>
+</form>

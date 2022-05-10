@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @package   plg_ajax_flyandexturbo
+  ~ @version   3.3.0
+  ~ @author    Dmitriy Vasyukov - https://fictionlabs.ru
+  ~ @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
+  ~ @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+  ~ @link      https://fictionlabs.ru/
+  -->
+
+<form>
+    <fieldset name="section1">
+        <field name="title" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_CUSTOM_TITLE_LABEL" 
+            description="PLG_FLYANDEXTURBO_CUSTOM_TITLE_DESC" />
+
+        <field name="link" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_CUSTOM_LINK_LABEL" 
+            description="PLG_FLYANDEXTURBO_CUSTOM_LINK_DESC" />
+
+        <field name="author" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_CUSTOM_AUTHOR_LABEL" 
+            description="PLG_FLYANDEXTURBO_CUSTOM_AUTHOR_DESC" />
+
+        <field name="image" type="media" directory=""
+            label="PLG_FLYANDEXTURBO_CUSTOM_IMAGE_LABEL" 
+            description="PLG_FLYANDEXTURBO_CUSTOM_IMAGE_DESC" />
+
+        <field name="date" type="calendar" default="" 
+            label="PLG_FLYANDEXTURBO_CUSTOM_DATE_LABEL" 
+            description="PLG_FLYANDEXTURBO_CUSTOM_DATE_DESC"
+            showtime="false" 
+            todaybutton="false" 
+            filltable="false" 
+            translateformat="true" />
+    </fieldset>
+    <fieldset name="section2">
+        <field name="content" type="textarea" default="" 
+            label="PLG_FLYANDEXTURBO_CUSTOM_CONTENT_LABEL" 
+            description="PLG_FLYANDEXTURBO_CUSTOM_CONTENT_DESC" 
+            rows="13"
+            cols="50"
+            class="row-fluid"
+            filter="raw" />
+    </fieldset>
+</form>

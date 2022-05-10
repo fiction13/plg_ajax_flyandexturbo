@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @package   plg_ajax_flyandexturbo
+  ~ @version   3.3.0
+  ~ @author    Dmitriy Vasyukov - https://fictionlabs.ru
+  ~ @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
+  ~ @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+  ~ @link      https://fictionlabs.ru/
+  -->
+
+<form>
+    <fieldset name="section1">
+        <field name="enable" type="radio"
+               default="0"
+               label="PLG_FLYANDEXTURBO_ENABLE_LABEL"
+               description="PLG_FLYANDEXTURBO_ENABLE_DESC"
+               class="btn-group btn-group-yesno">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+
+        <field name="enable_categories"
+               type="hidden"
+               default="0"/>
+
+        <field name="items"
+               type="subform"
+               formsource="/plugins/ajax/flyandexturbo/subform/custom.xml"
+               min="1"
+               multiple="true"
+               layout="joomla.form.field.subform.repeatable-table"
+               label="PLG_FLYANDEXTURBO_CUSTOM_PAGES_LABEL"
+               groupByFieldset="true"
+               buttons="add,remove"
+               description="PLG_FLYANDEXTURBO_CUSTOM_PAGES_DESC"/>
+    </fieldset>
+</form>

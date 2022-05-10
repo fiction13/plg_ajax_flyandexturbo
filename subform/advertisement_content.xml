@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @package   plg_ajax_flyandexturbo
+  ~ @version   3.3.0
+  ~ @author    Dmitriy Vasyukov - https://fictionlabs.ru
+  ~ @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
+  ~ @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+  ~ @link      https://fictionlabs.ru/
+  -->
+
+<form>
+    <fieldset name="section1">
+        <field name="items_advertisement_type" type="fllist" default=""
+            label="PLG_FLYANDEXTURBO_ADS_TYPE_LABEL"
+            description="PLG_FLYANDEXTURBO_ADS_TYPE_DESC"
+            multiple="false">
+            <option value="Yandex">PLG_FLYANDEXTURBO_ADS_YAS</option>
+            <option value="AdFox">PLG_FLYANDEXTURBO_ADS_ADFOX</option>
+        </field>
+
+        <field name="items_advertisement_id" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_ADS_ID_LABEL" 
+            description="PLG_FLYANDEXTURBO_ADS_ID_DESC" />
+
+        <field name="items_advertisement_attr" type="textarea" default="" 
+            label="PLG_FLYANDEXTURBO_ADS_CODE_LABEL" 
+            description="PLG_FLYANDEXTURBO_ADS_CODE_DESC" />
+    </fieldset>
+</form>

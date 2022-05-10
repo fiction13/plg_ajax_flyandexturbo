@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ @package   plg_ajax_flyandexturbo
+  ~ @version   3.3.0
+  ~ @author    Dmitriy Vasyukov - https://fictionlabs.ru
+  ~ @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
+  ~ @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+  ~ @link      https://fictionlabs.ru/
+  -->
+
+<form>
+    <fieldset name="section1">
+        <field name="items_callback_type" type="fllist" default=""
+            label="PLG_FLYANDEXTURBO_CALLBACK_TYPE_LABEL"
+            description="PLG_FLYANDEXTURBO_CALLBACK_TYPE_DESC"
+            multiple="false">
+            <option value="call">PLG_FLYANDEXTURBO_CALLBACK_TYPE_CALL</option>
+            <option value="chat">PLG_FLYANDEXTURBO_CALLBACK_TYPE_CHAT</option>
+            <option value="mail">PLG_FLYANDEXTURBO_CALLBACK_TYPE_MAIL</option>
+            <option value="callback">PLG_FLYANDEXTURBO_CALLBACK_TYPE_CALLBACK</option>
+            <option value="facebook">PLG_FLYANDEXTURBO_CALLBACK_TYPE_FB</option>
+            <option value="google">PLG_FLYANDEXTURBO_CALLBACK_TYPE_GOOGLE</option>
+            <option value="odnoklassniki">PLG_FLYANDEXTURBO_CALLBACK_TYPE_OK</option>
+            <option value="telegram">PLG_FLYANDEXTURBO_CALLBACK_TYPE_TG</option>
+            <option value="twitter">PLG_FLYANDEXTURBO_CALLBACK_TYPE_TW</option>
+            <option value="viber">PLG_FLYANDEXTURBO_CALLBACK_TYPE_VIBER</option>
+            <option value="vkontakte">PLG_FLYANDEXTURBO_CALLBACK_TYPE_VK</option>
+            <option value="whatsapp">PLG_FLYANDEXTURBO_CALLBACK_TYPE_WHATSAPP</option>
+        </field>
+
+        <field name="items_callback_url" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_CALLBACK_URL_LABEL" 
+            description="PLG_FLYANDEXTURBO_CALLBACK_URL_DESC" />
+
+        <field name="items_callback_email" type="email" default="" 
+            label="PLG_FLYANDEXTURBO_CALLBACK_EMAIL_LABEL" 
+            description="PLG_FLYANDEXTURBO_CALLBACK_EMAIL_DESC" />
+
+        <field name="items_callback_company" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_CALLBACK_COMPANY_LABEL" 
+            description="PLG_FLYANDEXTURBO_CALLBACK_COMPANY_DESC" />
+
+        <field name="items_callback_link" type="text" default="" 
+            label="PLG_FLYANDEXTURBO_CALLBACK_LINK_LABEL" 
+            description="PLG_FLYANDEXTURBO_CALLBACK_LINK_DESC" />
+    </fieldset>
+</form>
