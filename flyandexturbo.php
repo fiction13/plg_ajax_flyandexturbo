@@ -246,7 +246,7 @@ class plgAjaxFLYandexTurbo extends CMSPlugin
 
 			// Strip Tags
 			$core       = new FLYandexTurboCore($this->params);
-			$tags       = $core->getAllowTags($this->params->get('items_tags'));
+			$tags       = $core->getAllowTags($this->params->get('items_tags', array()));
 			$moduleHtml = implode("\n", $moduleHtml);
 			$moduleHtml = strip_tags($moduleHtml, $tags);
 
@@ -321,7 +321,7 @@ class FLYandexTurboCore
 		$this->app    = Factory::getApplication();
 		$this->db     = Factory::getDbo();
 		$this->input  = $this->app->input;
-		$this->tags   = $this->getAllowTags($this->params->get('items_tags'));
+		$this->tags   = $this->getAllowTags($this->params->get('items_tags', array()));
 		$this->ssl    = (Factory::getConfig()->get('force_ssl', 0) == 2 || $this->params->get('enable_force_ssl', 0)) ? 1 : -1;
 	}
 
@@ -428,6 +428,11 @@ class FLYandexTurboCore
 	 */
 	public function getAllowTags($tags = array())
 	{
+		if (empty($tags))
+		{
+			return '';
+		}
+
 		$tags = array_map(
 			function ($el) {
 				return "<{$el}>";
