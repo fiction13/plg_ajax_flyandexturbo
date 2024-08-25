@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ @package   plg_ajax_flyandexturbo
-  ~ @version   3.3.0
+  ~ @version   3.3.4
   ~ @author    Dmitriy Vasyukov - https://fictionlabs.ru
   ~ @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
   ~ @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
   ~ @link      https://fictionlabs.ru/
   -->
 
-<extension version="4.0" type="plugin" group="ajax" method="upgrade">
+<extension version="4.2" type="plugin" group="ajax" method="upgrade">
     <name>FL Yandex Turbo</name>
     <author>Dmitriy Vasyukov</author>
-    <creationDate>July 2017</creationDate>
+    <creationDate>August 2024</creationDate>
     <copyright>Copyright 2020 FictionLabs. All rights reserved</copyright>
     <license>http://opensource.org/licenses/GPL-2.0 GNU/GPLv2 only</license>
     <authorEmail>info@fictionlabs.ru</authorEmail>
     <authorUrl>https://fictionlabs.ru</authorUrl>
-    <version>3.3.0</version>
-    <description><![CDATA[PLG_FLYANDEXTURBO_DESC]]></description>
+    <version>3.3.4</version>
+    <description>PLG_FLYANDEXTURBO_DESC</description>
     <scriptfile>script.php</scriptfile>
     <files>
         <filename plugin="flyandexturbo">flyandexturbo.php</filename>
@@ -35,8 +35,8 @@
         </server>
     </updateservers>
     <languages>
-        <language tag="ru-RU">language/ru-RU/ru-RU.plg_ajax_flyandexturbo.ini</language>
-        <language tag="ru-RU">language/ru-RU/ru-RU.plg_ajax_flyandexturbo.sys.ini</language>
+        <language tag="ru-RU">language/ru-RU/plg_ajax_flyandexturbo.ini</language>
+        <language tag="ru-RU">language/ru-RU/plg_ajax_flyandexturbo.sys.ini</language>
     </languages>
     <config>
         <fields name="params">

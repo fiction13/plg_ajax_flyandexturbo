@@ -1,7 +1,7 @@
 <?php
 /*
  * @package   plg_ajax_flyandexturbo
- * @version   3.3.0
+ * @version   3.3.4
  * @author    Dmitriy Vasyukov - https://fictionlabs.ru
  * @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
  * @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
@@ -10,14 +10,12 @@
 
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Access\Access;
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Date\Date;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
-use Joomla\Component\Content\Site\Model\ArticlesModel;
 
 class FLYandexTurboCoreContent extends FLYandexTurboCore
 {
@@ -30,9 +28,6 @@ class FLYandexTurboCoreContent extends FLYandexTurboCore
 	function __construct($params)
 	{
 		parent::__construct($params);
-
-		JLoader::register('ContentHelperRoute', JPATH_SITE . '/components/com_content/helpers/route.php');
-		JModelLegacy::addIncludePath(JPATH_SITE . '/components/com_content/models', 'ContentModel');
 	}
 
 	/**

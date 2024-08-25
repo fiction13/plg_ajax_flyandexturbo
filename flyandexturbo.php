@@ -1,7 +1,7 @@
 <?php
 /*
  * @package   plg_ajax_flyandexturbo
- * @version   3.3.0
+ * @version   3.3.4
  * @author    Dmitriy Vasyukov - https://fictionlabs.ru
  * @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
  * @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
@@ -11,6 +11,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Cache\Cache;
 use Joomla\CMS\Date\Date;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Filesystem\Folder;
@@ -48,6 +49,14 @@ class plgAjaxFLYandexTurbo extends CMSPlugin
 
 
 	/**
+	 * @var
+	 */
+	public $params;
+	private \Joomla\Input\Input $input;
+
+	private \Joomla\CMS\Document\Document $document;
+
+	/**
 	 * @param $subject
 	 * @param $config
 	 */
@@ -55,8 +64,9 @@ class plgAjaxFLYandexTurbo extends CMSPlugin
 	{
 		parent::__construct($subject, $config);
 
-		$this->input    = $this->app->input;
-		$this->document = Factory::getDocument();
+		$this->app      = Factory::getApplication();
+		$this->input    = $this->app->getInput();
+		$this->document = $this->app->getDocument();
 	}
 
 	/**
@@ -84,10 +94,13 @@ class plgAjaxFLYandexTurbo extends CMSPlugin
 			$mode      = $this->input->getString('mode', 'all');
 
 			$cacheId = md5(serialize($component . '_' . $page . '_' . $mode));
-			$cache   = Factory::getCache('plg_flyandexturbo', '');
 
-			$cache->setCaching(true);
-			$cache->setLifeTime($this->params->get('cache_time', Factory::getConfig()->get('cachetime', 1140)));
+			$cache = new Cache(
+				array(
+					'caching'  => true,
+					'lifetime' => $this->params->get('cache_time', $this->app->get('cachetime', 1140))
+				)
+			);
 
 			$html = $cache->get($cacheId, 'plg_flyandexturbo');
 
@@ -310,6 +323,18 @@ class plgAjaxFLYandexTurbo extends CMSPlugin
  */
 class FLYandexTurboCore
 {
+	protected mixed $params;
+
+	protected ?\Joomla\CMS\Application\CMSApplicationInterface $app;
+
+	private mixed $db;
+
+	private \Joomla\Input\Input $input;
+
+	private string $tags;
+
+	protected int $ssl;
+
 	/**
 	 * @param $params
 	 *
@@ -319,10 +344,10 @@ class FLYandexTurboCore
 	{
 		$this->params = $params;
 		$this->app    = Factory::getApplication();
-		$this->db     = Factory::getDbo();
-		$this->input  = $this->app->input;
+		$this->db     = Factory::getContainer()->get('DatabaseDriver');
+		$this->input  = $this->app->getInput();
 		$this->tags   = $this->getAllowTags($this->params->get('items_tags', array()));
-		$this->ssl    = (Factory::getConfig()->get('force_ssl', 0) == 2 || $this->params->get('enable_force_ssl', 0)) ? 1 : -1;
+		$this->ssl    = ($this->app->get('force_ssl', 0) == 2 || $this->params->get('enable_force_ssl', 0)) ? 1 : -1;
 	}
 
 	/**
@@ -494,7 +519,16 @@ class FLYandexTurboCore
 
 		libxml_use_internal_errors(true);
 
-		$dom->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+		// Convert
+		$html = mb_encode_numericentity(
+			htmlspecialchars_decode(
+				htmlentities($html, ENT_NOQUOTES, 'UTF-8', false)
+				, ENT_NOQUOTES
+			), [0x80, 0x10FFFF, 0, ~0],
+			'UTF-8'
+		);
+
+		$dom->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $html);
 
 		// Remove Image Links And Wrap Images With Figure Tag
 

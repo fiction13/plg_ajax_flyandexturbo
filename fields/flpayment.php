@@ -1,7 +1,7 @@
 <?php
 /*
  * @package   plg_ajax_flyandexturbo
- * @version   3.3.0
+ * @version   3.3.4
  * @author    Dmitriy Vasyukov - https://fictionlabs.ru
  * @copyright Copyright (c) 2022 Fictionlabs. All rights reserved.
  * @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
